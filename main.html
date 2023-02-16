@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="./category.css">
   <style>
     *{
+      margin: 0;
+      padding: 0;
       border: 1px dotted red;
       box-sizing: border-box;
     }
@@ -95,15 +97,38 @@
     .topmenuLeft>div:nth-child(1){
       height: 100%;
       width: 40px;
+      cursor: pointer;
+      z-index: 2;
     }
-    .topmenuLeft>div:nth-child(2){
+    .topmenuLeft>div:nth-child(4){
       height: 100%;
       width: 60px;
     }
-    .topmenuLeft>div:nth-child(3){
+    .topmenuLeft>div:nth-child(5){
       height: 100%;
       width: 300px;
     }
+    
+
+    #hiddentop1{
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      top: 0px;
+      z-index: 1;
+      transition: all 0.07s ease;
+      
+    }
+    #hiddentop2{
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      top: 0px;
+      z-index: 1;
+      transition: all 0.09s ease;
+
+    }
+    
     .topmenuRight{
       height: 40px;
       position: fixed;
@@ -179,9 +204,24 @@
 </head>
 <body>
   <div class = "topmenuLeft">
+    <div id = "hiddenmother"></div>
+    <div id = "hiddentop1"></div>
+    <div id = "hiddentop2"></div>
     <div></div>
     <div></div>
-    <div></div>
+    <script>
+      let hm = document.getElementById("hiddenmother");
+      let h1 = document.getElementById("hiddentop1")
+      let h2 = document.getElementById("hiddentop2") 
+      hm.addEventListener('mouseover', () => { 
+        h1.style.top = "40px"
+        h2.style.top = "80px"
+      });
+      hm.addEventListener('mouseout', () => {
+        h1.style.top = "0px"
+        h2.style.top = "0px"
+      });
+    </script>
   </div>
   <div class = "topmenuRight">
     <div></div>
