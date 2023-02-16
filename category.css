@@ -1,0 +1,28 @@
+.sidemain>div:nth-child(3){
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.sidemain>div:nth-child(3)>div:nth-child(1){flex : 2 1 0;}
+.sidemain>div:nth-child(3)>div:nth-child(2){
+  flex : 3 1 0; display: flex;
+  justify-content: center;
+}
+.sidemain>div:nth-child(3)>div:nth-child(2)>div{
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.sidemain>div:nth-child(3)>div:nth-child(2)>div>div:nth-child(1){
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.sidemain>div:nth-child(3)>div:nth-child(2)>div>div:nth-child(2){
+  width: 30px;
+  height: 15px;
+  margin-top: 10px;
+}
