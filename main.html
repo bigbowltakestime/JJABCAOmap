@@ -4,9 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JJAPCAOmap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./searchbar.css">
   <link rel="stylesheet" href="./category.css">
+  <link rel="stylesheet" href="./sidemainweather.css">
+  <link rel="stylesheet" href="./jbmenu.css">
   <style>
     *{
       margin: 0;
@@ -17,6 +22,7 @@
     body{
       margin: 0;
       height: 975px;
+      font-family: 'Nanum Gothic';
     }
     #map{
       width: 100vw;
@@ -57,6 +63,11 @@
     }
     .sidetop>div:nth-child(3)>div{
       flex: 1 1 0;
+      color: rgb(230, 230, 230);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
     }
 
     .sidemain{
@@ -67,7 +78,15 @@
     }
     .sidemain>div:nth-child(1){flex: 2 1 0;}
     .sidemain>div:nth-child(2){flex: 3 1 0;}
-    .sidemain>div:nth-child(3){flex: 4 1 0;}
+    .sidemain>div:nth-child(3){
+      flex: 4 1 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidemain>div:nth-child(3)>h4{
+      margin-top: 20px;
+      margin-left: 20px;
+    }
     .sidemain>div:nth-child(4){flex: 10 1 0;}
 
     .sidefooter{
@@ -94,17 +113,24 @@
       border-radius: 5px;
       box-shadow: 0px 1px rgba(75, 75, 75, 0.253);
     }
+    .topmenuLeft>div:nth-child(1)>div{
+      background-color: #fff;
+      border-radius: 5px;
+    }
     .topmenuLeft>div:nth-child(1){
       height: 100%;
       width: 40px;
       cursor: pointer;
       z-index: 2;
+      border: 0px;
+      border: 1px solid lightgray;
+
     }
-    .topmenuLeft>div:nth-child(4){
+    .topmenuLeft>div:nth-child(2){
       height: 100%;
       width: 60px;
     }
-    .topmenuLeft>div:nth-child(5){
+    .topmenuLeft>div:nth-child(3){
       height: 100%;
       width: 300px;
     }
@@ -117,6 +143,7 @@
       top: 0px;
       z-index: 1;
       transition: all 0.07s ease;
+      border: 1px solid lightgray;
       
     }
     #hiddentop2{
@@ -126,6 +153,7 @@
       top: 0px;
       z-index: 1;
       transition: all 0.09s ease;
+      border: 1px solid lightgray;
 
     }
     
@@ -204,15 +232,39 @@
 </head>
 <body>
   <div class = "topmenuLeft">
-    <div id = "hiddenmother"></div>
-    <div id = "hiddentop1"></div>
-    <div id = "hiddentop2"></div>
+    <div id = "hiddenmother">
+      <div></div>
+      <div id = "hiddentop1"></div>
+      <div id = "hiddentop2"></div>
+    </div>
+    
+    <div id = "jbmenubutton"></div>
     <div></div>
-    <div></div>
+    <div id = "jbmenu">
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <script>
       let hm = document.getElementById("hiddenmother");
       let h1 = document.getElementById("hiddentop1")
       let h2 = document.getElementById("hiddentop2") 
+      let jbbutton = document.getElementById("jbmenubutton")
+      let jbm = document.getElementById("jbmenu")
+      let opacityFlag = true
       hm.addEventListener('mouseover', () => { 
         h1.style.top = "40px"
         h2.style.top = "80px"
@@ -220,6 +272,16 @@
       hm.addEventListener('mouseout', () => {
         h1.style.top = "0px"
         h2.style.top = "0px"
+      });
+      jbbutton.addEventListener('click', () => {
+        if(opacityFlag){
+          jbm.style.opacity = "1"
+          opacityFlag = false
+        }
+        else{
+          jbm.style.opacity = "0"
+          opacityFlag = true
+        }
       });
     </script>
   </div>
@@ -244,17 +306,22 @@
           <input type="text" name="search" class="searchbar" value="&nbsp;&nbsp;&nbsp;장소, 주소, 버스 검색">
         </div>
         <div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div>검색</div>
+          <div>길찾기</div>
+          <div>버스</div>
+          <div>지하철</div>
+          <div>MY</div>
         </div>
       </div>
       <div class = "sidemain">
-        <div>1</div>
         <div>
-          <div></div>
+          <h4>대전광역시 둔산동</h4>
+          <div>구름많음 6˚ 이런거 들어 갈 자리</div>
+        </div>
+        <div>
+          <div>
+            <h4>주변탐색</h4>
+          </div>
           <div>
             <div>
               <div></div>
@@ -287,7 +354,7 @@
           </div>
         </div>
         <div>
-          
+          <h4>즐겨찾기 ></h4>
         </div>
         <div>4</div>
       </div>

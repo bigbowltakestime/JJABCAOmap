@@ -1,0 +1,29 @@
+#jbmenu{
+  position: absolute;
+  height: 270px;
+  width: 200px;
+  top: 45px;
+  left: 50px;
+  display: flex;
+  opacity: 0;
+}
+#jbmenubutton{
+  cursor: pointer;
+}
+#jbmenu>div{
+  flex : 1 1 0;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+}
+#jbmenu>div>div{
+  flex : 1 1 0;
+  border: 1px solid rgb(241, 241, 241);
+  background-color: white;
+  cursor:default;
+  
+}
+
+#jbmenu>div>div:hover{
+  background-color: rgb(233, 233, 233);
+}
